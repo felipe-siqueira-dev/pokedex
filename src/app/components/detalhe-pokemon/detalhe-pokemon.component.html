@@ -1,0 +1,28 @@
+<div id="backdrop" [ngClass]="{escondido: !aberto}" (click)="clicked.emit()"></div>
+<div id="container">
+    <div id="dados">
+        <div class="area">
+            <app-item-pokemon
+                [fullData] = "pokemon">
+            </app-item-pokemon>
+        </div>
+        <div class="area">
+            <p>
+                <span class="etiqueta">Type</span>
+                <span class="tipo" *ngFor="let tipo of pokemon?.types">{{tipo.type.name}}</span>
+            </p>
+            <p><span class="etiqueta">Height</span>{{pokemon?.height}}</p>
+            <p><span class="etiqueta">Weight</span>{{pokemon?.weight}} lbs</p>
+        </div>
+        <div class="area">
+            <div id="descricaoContainer">
+                <div></div>
+                <p>{{descricao}}</p>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <button (click)="clicked.emit()">
+        <img src="./../../../assets/img/arrowRight.svg" [ngClass]="{girar:aberto}">
+    </button>
+</div>

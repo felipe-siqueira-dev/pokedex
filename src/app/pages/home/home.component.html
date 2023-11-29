@@ -1,0 +1,17 @@
+<main id = "container">
+    <app-detalhe-pokemon
+        [pokemon] = "pokemonSelecionado"
+        (clicked)="mudarEstadoDetalhe()"
+        [aberto]="detalhe"
+        [ngClass]="{aberto:detalhe}"
+    >
+    </app-detalhe-pokemon>
+    <app-foto-pokemon [pokemon] = "pokemonSelecionado">
+    </app-foto-pokemon>
+    <div id = "itensContainer" #itens (scroll)="onScroll($event)">
+        <app-item-pokemon *ngFor="let pokemon of listaPokemon" [data]="pokemon"
+        [selecionado]="pokemon.name === pokemonSelecionado?.name"
+        (clicado)="itemClicado($event)">
+        </app-item-pokemon>
+    </div>
+</main>
